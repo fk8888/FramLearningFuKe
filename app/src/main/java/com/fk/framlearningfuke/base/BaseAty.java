@@ -1,4 +1,4 @@
-package com.fk.framlearningfuke.aty;
+package com.fk.framlearningfuke.base;
 
 import com.kongzue.baseframework.BaseActivity;
 

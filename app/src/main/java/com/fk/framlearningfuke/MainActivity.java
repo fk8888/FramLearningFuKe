@@ -1,15 +1,19 @@
 package com.fk.framlearningfuke;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.fk.framlearningfuke.aty.BaseAty;
+import com.fk.framlearningfuke.aty.HomeAty;
+import com.fk.framlearningfuke.base.BaseAty;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
 import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+
 
 /**
  * @author NineTailDemonFox
@@ -18,31 +22,51 @@ import com.kongzue.baseframework.util.JumpParameter;
  * 联系方式：1037438704@qq.com
  */
 @Layout(R.layout.activity_main)
-@DarkStatusBarTheme(true)           //开启顶部状态栏图标、文字暗色模式
+@DarkStatusBarTheme(true)//开启顶部状态栏图标、文字暗色模式
 @NavigationBarBackgroundColor(a = 255,r = 255,g = 255,b = 255)
-@DarkNavigationBarTheme(true)       //开启底部导航栏按钮暗色模式
+@DarkNavigationBarTheme(true)//开启底部导航栏按钮暗色模式
 public class MainActivity extends BaseAty {
 
-    TextView text_finish;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg){
+            super.handleMessage(msg);
+            if (msg!= null){
+                jump(HomeAty.class);
+            }
+
+        }
+    };
 
     @Override
     public void initViews() {
-        text_finish = findViewById(R.id.text_finish);
-        me.getStatusBarHeight();
+
     }
 
     @Override
     public void initDatas(JumpParameter parameter) {
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                    Message obtain = Message.obtain();
+                    obtain.obj = 1;
+                    handler.handleMessage(obtain);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
     public void setEvents() {
-        text_finish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(me, "返回", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+    }
+
+    public void onClick(View view) {
+        jump(HomeAty.class);
     }
 }
