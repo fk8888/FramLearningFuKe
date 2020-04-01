@@ -27,18 +27,6 @@ import com.kongzue.baseframework.util.JumpParameter;
 @DarkNavigationBarTheme(true)//开启底部导航栏按钮暗色模式
 public class MainActivity extends BaseAty {
 
-
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg){
-            super.handleMessage(msg);
-            if (msg!= null){
-                jump(HomeAty.class);
-            }
-
-        }
-    };
-
     @Override
     public void initViews() {
 
@@ -46,19 +34,7 @@ public class MainActivity extends BaseAty {
 
     @Override
     public void initDatas(JumpParameter parameter) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(3000);
-                    Message obtain = Message.obtain();
-                    obtain.obj = 1;
-                    handler.handleMessage(obtain);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+
     }
 
     @Override

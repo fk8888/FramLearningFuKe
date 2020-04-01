@@ -3,15 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-
+    android:background="@color/white"
     tools:context=".MainActivity">
-
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="点击跳转"
-        android:onClick="onClick"
-        tools:ignore="OnClick" />
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击跳转"
+            android:onClick="onClick"
+            tools:ignore="OnClick" />
+    </FrameLayout>
+
 
 </FrameLayout>

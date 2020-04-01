@@ -1,8 +1,17 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!--启动页的背景-->
+        <item name="android:windowBackground">@mipmap/aaaa</item>
+        <!--沉浸-->
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+
+
+        <!--<item name="windowActionBar">true</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+         <!--Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
